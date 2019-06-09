@@ -50,11 +50,18 @@ def compare_lists(llist1, llist2):
     while True:
         if not llist1 and not llist2:
             return 1
-        elif (llist1 and llist2) and (llist1.data == llist2.data):
-            llist1 = llist1.next
-            llist2 = llist2.next
-        else:
+        
+        if not llist1 or not llist2:
             return 0
+    
+        llist1 = llist1.next
+        llist2 = llist2.next
+        
+        # elif (llist1 and llist2) and (llist1.data == llist2.data):
+        #     llist1 = llist1.next
+        #     llist2 = llist2.next
+        # else:
+        #     return 0
 
 
 if __name__ == '__main__':
