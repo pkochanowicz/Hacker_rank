@@ -50,6 +50,32 @@ def print_doubly_linked_list(node, sep, fptr):
 #
 #
 def sortedInsert(head, data):
+    inserted_node = DoublyLinkedListNode
+    inserted_node.data = data
+
+    if head is None:
+        return inserted_node
+    if head.data > inserted_node.data:
+        inserted_node.next = head
+        head.prev = inserted_node
+        return inserted_node
+
+    current_node = head
+    while (current_node.next is not None) and (current_node.next.data < data):
+        current_node = current_node.next
+    inserted_node.next = current_node.next
+    if current_node.next:
+        inserted_node.next.prev = inserted_node
+    current_node.next = inserted_node
+    inserted_node.prev = current_node
+    return head
+# 1
+# 3
+# 2
+# 3
+# 4
+# 1
+def sortedInsert1(head, data):
     if head is None:
         head.data = data
         return head

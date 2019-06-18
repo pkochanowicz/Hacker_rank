@@ -54,14 +54,19 @@ def print_doubly_linked_list(node, sep, fptr):
 def reverse(head):
     if head is None:
         return None
-    while head is not None:
-        temp_node = head.prev
-        head.prev = head.next
-        head.next = temp_node
-        if head.prev is None:
-            return head
-        head = head.prev
-    return head
+
+    processed_node = head
+    while processed_node is not None:
+        old_prev = processed_node.prev
+        old_next = processed_node.next
+
+        processed_node.prev = old_next
+        processed_node.next = old_prev
+
+        if old_next is None: # head.prev used to be head.next
+            return processed_node
+        processed_node = old_next
+    return processed_node
 
 
 if __name__ == '__main__':
