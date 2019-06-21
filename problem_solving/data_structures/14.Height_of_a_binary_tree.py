@@ -49,30 +49,30 @@ class Node:
 '''
 
 
-def height(root):
-    left_height = 0
-    right_height = 0
-
-    if root is None:
-        return 0
-    else:
-        if root.left is not None:
-            left_height = height(root.left)
-            left_height += 1
-        if root.right is not None:
-            right_height = height(root.right)
-            right_height += 1
-    if left_height > right_height:
-        return left_height
-    else:
-        return right_height
+# def height(root):
+#     left_height = 0
+#     right_height = 0
+#
+#     if root is None:
+#         return 0
+#     else:
+#         if root.left is not None:
+#             left_height = height(root.left)
+#             left_height += 1
+#         if root.right is not None:
+#             right_height = height(root.right)
+#             right_height += 1
+#     if left_height > right_height:
+#         return left_height
+#     else:
+#         return right_height
 
 
 def height(root):
     if root is None:
         return -1
 
-    my_height = max(height(root.left) + 1, height(root.right) + 1)
+    my_height = 1 + max(height(root.left), height(root.right))
 
     return my_height
 
