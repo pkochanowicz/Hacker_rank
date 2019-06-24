@@ -16,7 +16,7 @@ def plusMinus(arr):
             positive_numbers_count += 1
         elif i < 0:
             negative_numbers_count += 1
-        elif i == 0:
+        else:
             zeros_count += 1
     print(positive_numbers_count/len(arr))
     print(negative_numbers_count/len(arr))
