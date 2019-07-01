@@ -18,7 +18,7 @@ def gradingStudents(grades):
     rounded_list = []
     for grade in grades:
         if grade % 5 > 2 and grade >= 35:
-            grade = round(grade/5) * 5
+            grade = round(grade/5)*5
         rounded_list.append(grade)
     return rounded_list
 
