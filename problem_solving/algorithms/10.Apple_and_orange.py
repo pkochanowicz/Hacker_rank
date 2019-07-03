@@ -9,17 +9,19 @@ import sys
 
 
 def countApplesAndOranges(s, t, a, b, apples, oranges):
-    distance_from_apple_tree = s - a
-    distance_from_orange_tree = t - b
-    distance_from_apple_tree2 = t - a
-    distance_from_orange_tree2 = s - b
+    left_tree_to_left_house_side_distance = s - a
+    left_tree_to_right_house_side_distance = t - a
+
+    right_tree_to_left_house_side_distance = t - b
+    right_tree_to_right_house_side_distance = s - b
+
     apples_in_range = 0
     oranges_in_range = 0
     for apple in apples:
-        if apple >= distance_from_apple_tree and distance_from_apple_tree2 >= apple:
+        if apple >= left_tree_to_left_house_side_distance and left_tree_to_right_house_side_distance >= apple:
             apples_in_range += 1
     for orange in oranges:
-        if orange <= distance_from_orange_tree and distance_from_orange_tree2 <= orange:
+        if orange <= right_tree_to_left_house_side_distance and right_tree_to_right_house_side_distance <= orange:
             oranges_in_range += 1
     print(apples_in_range)
     print(oranges_in_range)
