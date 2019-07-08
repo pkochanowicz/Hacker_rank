@@ -10,14 +10,14 @@ import sys
 def birthday(s, d, m):
     portion_possibilities = 0
     for index, square in enumerate(s):
-        n = 0
+        squares_count = 0
         square_sum = 0
-        while n < m:
-            square_sum += s[index + n]
-            n += 1
+        while squares_count < m:
+            square_sum += s[index + squares_count]
+            squares_count += 1
         if square_sum == d:
             portion_possibilities += 1
-        if index + n == len(s):
+        if index + squares_count == len(s):
             break
     return portion_possibilities
 
